@@ -2,8 +2,12 @@ package services;
 
 public class Prog {
     public static void main(String[] args) {
-        PayService payservice = new PayService();
-        System.out.println("RESULT "+payservice.finalPrice(300.0,"sp"));
+        TaxService taxService = new TaxService();
+        DeliveService deliveService = new DeliveService();
+
+        PayService payservice = new PayService(taxService, deliveService);
+
+        System.out.println("RESULT "+payservice.finalPrice(150,"sp"));
     }
     
 }
